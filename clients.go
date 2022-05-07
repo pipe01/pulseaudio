@@ -23,14 +23,14 @@ func (c *OtherClient) ReadFrom(r io.Reader) (int64, error) {
 	return 0, err
 }
 
-func (c *Client) Clients() ([]Client, error) {
+func (c *Client) Clients() ([]OtherClient, error) {
 	b, err := c.request(commandGetClientInfoList)
 	if err != nil {
 		return nil, err
 	}
-	var clients []Client
+	var clients []OtherClient
 	for b.Len() > 0 {
-		var client Client
+		var client OtherClient
 		err = bread(b, &client)
 		if err != nil {
 			return nil, err
