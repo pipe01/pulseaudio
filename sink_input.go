@@ -68,3 +68,12 @@ func (c *Client) SinkInputs() ([]SinkInput, error) {
 	}
 	return sinkInputs, nil
 }
+
+func (c *Client) MoveSinkInput(sinkInputIndex uint32, sinkIndex uint32) error {
+	_, err := c.request(commandMoveSinkInput,
+		uint32Tag, sinkInputIndex,
+		uint32Tag, sinkIndex,
+		stringNullTag,
+	)
+	return err
+}

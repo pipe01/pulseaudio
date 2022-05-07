@@ -220,7 +220,8 @@ loop:
 
 func (c *Client) request(cmd command, args ...interface{}) (*bytes.Buffer, error) {
 	var b bytes.Buffer
-	args = append([]interface{}{uint32(0), // dummy length -- we'll overwrite at the end when we know our final length
+	args = append([]interface{}{
+		uint32(0),            // dummy length -- we'll overwrite at the end when we know our final length
 		uint32(0xffffffff),   // channel
 		uint32(0), uint32(0), // offset high & low
 		uint32(0),              // flags
