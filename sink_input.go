@@ -45,11 +45,8 @@ func (s *SinkInput) ReadFrom(r io.Reader) (int64, error) {
 		&s.IsVolumeWritable,
 		&s.Format,
 	)
-	if err != nil {
-		return 0, err
-	}
 
-	return 0, nil
+	return 0, err
 }
 
 func (c *Client) SinkInputs() ([]SinkInput, error) {
