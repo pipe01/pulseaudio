@@ -43,6 +43,7 @@ func (s *SinkInput) ReadFrom(r io.Reader) (int64, error) {
 		&s.Corked,
 		&s.HasVolume,
 		&s.IsVolumeWritable,
+		&s.Format,
 	)
 	if err != nil {
 		return 0, err
